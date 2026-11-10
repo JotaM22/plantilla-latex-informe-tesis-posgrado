@@ -1,29 +1,39 @@
-# Instrucciones para el agente de redacción
+# Instrucciones obligatorias para el agente — Informe de tesis (v1.0 inicial)
 
-## Objetivo
-Construir **informes finales de tesis de posgrado**, no proyectos de investigación. No incorporar automáticamente secciones como Generalidades, cronograma académico o presupuesto del plan de tesis.
+## Base documental
+Usar `AUDITORIA_FORMATO_REFERENCIA.md` y el informe Word proporcionado por el usuario únicamente para reproducir el formato, **nunca** para copiar resultados, citas, tablas de datos ni información personal. Es un ejemplo, no un reglamento oficial.
 
-## Principio semántico
-- **Estructura**: jerarquía de capítulos, secciones, listas, tablas, figuras y numeración.
-- **Presentación**: fuente, tamaño, márgenes, sangría, interlineado y espacios, definidos en archivos \`.sty\`.
-- **Contenido**: texto de los títulos, párrafos, resultados, tablas y referencias; varía con cada investigación.
-- Usar comandos de \`estructura.sty\`; jamás escribir manualmente números de capítulos y secciones.
-- No insertar \`\\vspace\` para reparar un título particular. Resolver el estilo global o crear un componente semántico documentado.
-- Usar \`listaTrasTitulo\` inmediatamente después de un encabezado y \`listaInforme\` tras texto normal.
+## Tres capas
+1. **Estructura**, en `estructura.sty`: páginas divisorias, jerarquía de capítulos y títulos, numeración, listas y preliminares.
+2. **Presentación**, en `estilos.sty` y `tablas.sty`: fuente, tamaños, interlineados, márgenes, sangrías, notas, tablas y figuras.
+3. **Contenido**, en `main.tex`: redacción, título, identidades, datos, resultados, referencias, figuras y anexos. Todo ello cambia entre tesis.
 
-## Integridad científica
-- No inventar resultados, muestras, valores p, conclusiones, fuentes ni identificadores bibliográficos.
-- Los resultados deben surgir de datos proporcionados y verificables.
-- La discusión debe interpretar resultados reales; conclusiones deben responder a los objetivos.
-- Mantener diferencias entre propuesta, ejecución y resultados.
+## Comandos semánticos
+- `\capituloTesis{...}`: capítulo con página divisoria, numeración romana en divisoria y encabezado al iniciar el cuerpo.
+- `\seccionTesis{...}`, `\subseccionTesis{...}`, `\apartadoTesis{...}`: títulos con numeración **automática**.
+- `\subtituloSinNumero{...}`: apartado semántico sin numerar.
+- `listaTrasTitulo`: solo cuando una lista sigue directamente a un título; el espacio adicional pertenece a la lista.
+- `listaTesis`: lista dentro de párrafos normales.
+- `\preliminarTesis{...}`: página preliminar.
+- `\notaTabla{...}` y `\fuenteTabla{...}`: nota o fuente **debajo** de tabla o figura.
 
-## Validación editorial
-1. Leer primero \`README.md\` y \`NORMAS_FORMATO.md\`.
-2. Confirmar norma institucional vigente del **informe** antes de declarar el formato definitivo.
-3. Compilar con XeLaTeX.
-4. Inspeccionar PDF visualmente: portada, tabla de contenidos, títulos, párrafos, listas, tablas anchas, figuras, bibliografía, anexos y paginación.
-5. No decir "idéntico a Word" sin comparación visual demostrable.
-6. Mantener separadas la plantilla de proyecto y la plantilla de informe.
+No escribir números manuales, tabulaciones o `\vspace` individuales para imitar un encabezado; resolver los cambios globalmente en el componente adecuado.
 
-## Estado inicial
-Los estilos y capítulos son una **base provisional**. La estructura exacta del informe y el diseño de portada deben decidirse a partir de documentos normativos del posgrado.
+## Reglas de tablas y figuras
+- Número en negrita, título en cursiva, ambos **arriba**.
+- Nota o fuente debajo, separada visualmente del elemento.
+- Tablas de resultados preferentemente con líneas horizontales; matrices e instrumentos pueden requerir cuadrículas.
+- Numeración consecutiva de tablas y figuras en todo el informe, no reiniciada por capítulo.
+- Ajustar tablas a `\linewidth`; en páginas horizontales revisar pie y numeración.
+- Los enlaces usan `\urlstyle{same}` para mantener la familia tipográfica.
+
+## Contenido y evidencia
+- Prohibido inventar datos, p-valores, hipótesis confirmadas, fuentes o referencias.
+- Los marcadores `[POR COMPLETAR]` son indicadores de contenido pendiente, no texto final.
+- Los resultados se basan solo en datos suministrados; la discusión interpreta resultados efectivamente obtenidos.
+
+## Control de calidad
+- Compilar siempre con **XeLaTeX**, nunca pdfLaTeX, por `fontspec`.
+- Revisar visualmente carátula, preliminares, índice, divisorias, jerarquía, cuerpo, leyendas, notas, referencias, horizontales y anexos.
+- No declarar equivalencia exacta con Microsoft Word sin comparación verificable.
+- Confirmar las exigencias institucionales vigentes antes de dar la plantilla por definitiva.
