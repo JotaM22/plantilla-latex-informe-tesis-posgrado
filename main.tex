@@ -2,85 +2,138 @@
 \usepackage{estilos}
 \usepackage{estructura}
 \usepackage{tablas}
-
 \begin{document}
-% PORTADA PROVISIONAL: reemplazar cuando exista modelo institucional aprobado.
+% PORTADA: componente de informe; campos entre corchetes son contenido variable.
 \begin{titlepage}
 \thispagestyle{empty}
+\setstretch{1.0}\setlength{\parskip}{0pt}
 \begin{center}
-{\bfseries UNIVERSIDAD PRIVADA ANTENOR ORREGO\par}
-\vspace{1cm}
-ESCUELA DE POSGRADO\par
-\vspace{2cm}
-{\bfseries INFORME DE TESIS PARA OPTAR EL GRADO ACADÉMICO DE [POR COMPLETAR]\par}
-\vspace{1.3cm}
-\rule{\textwidth}{0.7pt}\par\vspace{.3cm}
-{[TÍTULO DE LA TESIS]\par}
-\vspace{.3cm}\rule{\textwidth}{0.7pt}
-\vfill
-Autor(a): [POR COMPLETAR]\par
-Asesor(a): [POR COMPLETAR]\par
-\vfill
-TRUJILLO -- PERÚ\par
-2026
+{\bfseries\fontsize{17}{22}\selectfont UNIVERSIDAD PRIVADA ANTENOR ORREGO\par}
+\vspace{.65cm}
+{\bfseries\fontsize{14}{20}\selectfont ESCUELA DE POSGRADO\par}
+\vspace{.5cm}
+\IfFileExists{figuras/escudo_upao.jpg}{\includegraphics[height=3.5cm,keepaspectratio]{figuras/escudo_upao.jpg}}{\fbox{\parbox[c][3.5cm][c]{3cm}{\centering ESCUDO\\INSTITUCIONAL}}}\par
+\vspace{.5cm}
+{\bfseries\setstretch{1.35} TESIS PARA OPTAR EL GRADO DE MAESTRO EN [DENOMINACIÓN DEL PROGRAMA]\par}
+\vspace{.35cm}
+\rule{\linewidth}{.8pt}\par\vspace{.25cm}
+{\bfseries\setstretch{1.35}\MakeUppercase{[TÍTULO DE LA TESIS]}\par}
+\vspace{.25cm}\rule{\linewidth}{.8pt}\par
+\vspace{.3cm}
 \end{center}
+\noindent Línea de investigación: [POR COMPLETAR]\par
+\noindent Sublínea de investigación: [POR COMPLETAR]\par
+\vspace{.15cm}
+\noindent\textbf{Autor:} [NOMBRE]\par
+\noindent\textbf{Jurado Evaluador:}\par
+\noindent Presidente: [NOMBRE]\par
+\noindent Secretario: [NOMBRE]\par
+\noindent Vocal: [NOMBRE]\par
+\noindent\textbf{Asesor:} [NOMBRE]\par
+\noindent Código ORCID: [POR COMPLETAR]\par
+\vfill
+\begin{center}\textbf{Trujillo, [AÑO]}\end{center}
+\noindent R.D. [POR COMPLETAR]
 \end{titlepage}
-
 \pagenumbering{roman}
-\chapter*{Dedicatoria}
+\preliminarTesis{Declaración de originalidad}
+[POR COMPLETAR: declaración institucional, fecha y firmas.]
+\preliminarTesis{Acreditación}
+[POR COMPLETAR: declaración del asesor y firmas.]
+\preliminarTesis{Presentación}
+[POR COMPLETAR: presentación oficial del informe.]
+\preliminarTesis{Dedicatoria}
 [POR COMPLETAR]
-
-\chapter*{Agradecimientos}
+\preliminarTesis{Agradecimiento}
 [POR COMPLETAR]
-
-\tableofcontents
-\clearpage
-
-\chapter*{Resumen}
-\addcontentsline{toc}{chapter}{Resumen}
-[POR COMPLETAR: objetivo, metodología, resultados y conclusiones reales.]
-
+\preliminarTesis{Resumen}\preliminarIndice{RESUMEN}
+\begin{center}\textbf{[TÍTULO DE LA TESIS]}\end{center}
+[POR COMPLETAR: objetivos, método, resultados y conclusiones reales.]\par
 \noindent\textbf{Palabras clave:} [POR COMPLETAR]
-
-\chapter*{Abstract}
-\addcontentsline{toc}{chapter}{Abstract}
-[TO BE COMPLETED: translation of validated results.]
-
+\preliminarTesis{Abstract}\preliminarIndice{ABSTRACT}
+\begin{center}\textbf{[TITLE OF THE THESIS]}\end{center}
+[TO BE COMPLETED]\par
 \noindent\textbf{Keywords:} [TO BE COMPLETED]
-
-\clearpage
-\pagenumbering{arabic}
-
-\capituloInforme{Introducción}
-[POR COMPLETAR: contextualización, problema, objetivos e hipótesis, según la norma aprobada.]
-
-\capituloInforme{Metodología}
-\seccionInforme{Diseño de investigación}
+\clearpage\tableofcontents
+\clearpage\listoftables
+\clearpage\listoffigures
+\clearpage\pagenumbering{arabic}
+\capituloTesis{Introducción}
+\seccionTesis{El problema}
+Este párrafo de prueba permite comprobar interlineado, sangría, alineación y separación de párrafos. No contiene información de una investigación real.
+\subtituloSinNumero{Características problemáticas}
+\begin{listaTrasTitulo}
+\item [POR COMPLETAR: primera característica].
+\item [POR COMPLETAR: segunda característica].
+\end{listaTrasTitulo}
+\seccionTesis{Enunciado del problema}
 [POR COMPLETAR]
-\seccionInforme{Población y muestra}
+\seccionTesis{Alcance}
 [POR COMPLETAR]
-\seccionInforme{Instrumentos y procedimientos}
+\seccionTesis{Viabilidad}
 [POR COMPLETAR]
-\seccionInforme{Análisis de datos}
+\seccionTesis{Justificación}
+\subtituloSinNumero{Conveniencia}
 [POR COMPLETAR]
-
-\capituloInforme{Resultados}
-[POR COMPLETAR: tablas y figuras sustentadas en datos reales.]
-
-\capituloInforme{Discusión}
-[POR COMPLETAR: interpretación crítica y contraste con antecedentes.]
-
-\capituloInforme{Conclusiones}
-[POR COMPLETAR: conclusiones que respondan a los objetivos.]
-
-\capituloInforme{Recomendaciones}
-[POR COMPLETAR: recomendaciones derivadas de los hallazgos.]
-
-\chapter*{Referencias}
-\addcontentsline{toc}{chapter}{Referencias}
-[POR COMPLETAR: referencias verificadas, de acuerdo con el estilo requerido.]
-
-\appendix
-\capituloInforme{Anexos}
-[POR COMPLETAR: instrumentos, matrices y documentación pertinente.]
+\seccionTesis{Hipótesis}
+[POR COMPLETAR]
+\seccionTesis{Objetivos}
+[POR COMPLETAR]
+\capituloTesis{Marco teórico}
+\seccionTesis{Antecedentes}
+[POR COMPLETAR]
+\seccionTesis{Bases teóricas}
+[POR COMPLETAR]
+\capituloTesis{Metodología}
+\seccionTesis{Material}
+[POR COMPLETAR]
+\seccionTesis{Población}
+[POR COMPLETAR]
+\seccionTesis{Muestra}
+[POR COMPLETAR]
+\seccionTesis{Técnicas e instrumentos de recolección de datos}
+[POR COMPLETAR]
+\seccionTesis{Procedimientos}
+[POR COMPLETAR]
+\seccionTesis{Diseño de contrastación}
+[POR COMPLETAR]
+\seccionTesis{Procedimiento y análisis de datos}
+[POR COMPLETAR]
+\seccionTesis{Consideraciones éticas}
+[POR COMPLETAR]
+\capituloTesis{Resultados}
+\seccionTesis{Resultados descriptivos}
+[POR COMPLETAR]
+\begin{table}[htbp]
+\caption{Ejemplo de presentación de una tabla de resultados}\label{tab:ejemplo}
+\noindent\begin{tabularx}{\linewidth}{@{}Xrr@{}}\toprule
+Indicador & Valor & Unidad\\\midrule
+Indicador A & -- & --\\
+Indicador B & -- & --\\\bottomrule
+\end{tabularx}
+\notaTabla{Los valores son ilustrativos, no resultados de investigación.}
+\end{table}
+\seccionTesis{Contrastación de hipótesis}
+[POR COMPLETAR]
+\begin{figure}[htbp]
+\caption{Ejemplo de disposición de una figura}\label{fig:ejemplo}
+\centering\fbox{\parbox[c][3cm][c]{.77\linewidth}{\centering ESPACIO PARA FIGURA}}\par
+\notaTabla{Sustituir por una figura sustentada en datos reales.}
+\end{figure}
+\capituloTesis{Discusión}
+[POR COMPLETAR: interpretar resultados reales y compararlos con antecedentes.]
+\capituloTesis{Conclusiones y recomendaciones}
+\seccionTesis{Conclusiones}
+[POR COMPLETAR]
+\seccionTesis{Recomendaciones}
+[POR COMPLETAR]
+\clearpage\preliminarTesis{Referencias bibliográficas}
+\preliminarIndice{REFERENCIAS BIBLIOGRÁFICAS}
+\begin{list}{}{\setlength{\leftmargin}{1.27cm}\setlength{\itemindent}{-1.27cm}\setlength{\itemsep}{6pt}\setlength{\parsep}{0pt}}
+\item [POR COMPLETAR: referencias verificadas].
+\end{list}
+\clearpage\preliminarTesis{Anexos}
+\preliminarIndice{ANEXOS}
+\section*{Anexo 1: [Nombre del instrumento]}
+[POR COMPLETAR]
 \end{document}
