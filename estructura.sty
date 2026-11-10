@@ -2,12 +2,31 @@
 \ProvidesPackage{estructura}[2026/11/09 Estructura semantica de informe]
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
+\RequirePackage{tocloft}
+% Indices: titulos compactos y todas las entradas al margen de texto.
+\renewcommand{\cfttoctitlefont}{\normalfont\bfseries\normalsize}
+\renewcommand{\cftlottitlefont}{\normalfont\bfseries\normalsize}
+\renewcommand{\cftloftitlefont}{\normalfont\bfseries\normalsize}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{8pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{8pt}
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{8pt}
+\setlength{\cftchapindent}{0pt}
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsubsecindent}{0pt}
+\setlength{\cftsubsubsecindent}{0pt}
+\setlength{\cftfigindent}{0pt}
+\setlength{\cfttabindent}{0pt}
+\setlength{\cftbeforefigskip}{0pt}
+\setlength{\cftbeforetabskip}{0pt}
 \titleformat{\section}[hang]{\normalfont\bfseries\normalsize}{\thesection.}{.7em}{}
-\titlespacing*{\section}{.25cm}{8pt}{6pt}
+\titlespacing*{\section}{0pt}{8pt}{6pt}
 \titleformat{\subsection}[hang]{\normalfont\bfseries\normalsize}{\thesubsection.}{.7em}{}
-\titlespacing*{\subsection}{.25cm}{8pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{6pt}
 \titleformat{\subsubsection}[hang]{\normalfont\bfseries\normalsize}{\thesubsubsection.}{.7em}{}
-\titlespacing*{\subsubsection}{1.1cm}{8pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{8pt}{6pt}
 \newcommand{\seccionTesis}[1]{\section{#1}}
 \newcommand{\subseccionTesis}[1]{\subsection{#1}}
 \newcommand{\apartadoTesis}[1]{\subsubsection{#1}}
@@ -16,12 +35,16 @@
 \setlist[listaTrasTitulo]{label=\raisebox{.25ex}{\rule{.8mm}{.8mm}},leftmargin=.75cm,labelsep=.3cm,itemsep=3pt,parsep=0pt,topsep=9pt}
 \newlist{listaTesis}{itemize}{1}
 \setlist[listaTesis]{label=\raisebox{.25ex}{\rule{.8mm}{.8mm}},leftmargin=.75cm,labelsep=.3cm,itemsep=3pt,parsep=0pt,topsep=3pt}
+% Titulos capitulares sin sangria y alineados al margen izquierdo.
+\titleformat{\chapter}[hang]{\normalfont\bfseries\normalsize}{\thechapter.}{.7em}{}
+\titlespacing*{\chapter}{0pt}{0pt}{8pt}
+
 \newcommand{\capituloTesis}[1]{%
  \clearpage\refstepcounter{chapter}%
  \thispagestyle{empty}%
- \null\vfill\begin{center}{\bfseries\large CAPÍTULO \Roman{chapter}\par}\vspace{16pt}{\bfseries\large\MakeUppercase{#1}\par}\end{center}\vfill\null\clearpage%
+ \null\vfill{\raggedleft\bfseries\large CAPÍTULO \Roman{chapter}\par\vspace{16pt}\MakeUppercase{#1}\par}\vfill\null\clearpage%
  \phantomsection\addcontentsline{toc}{chapter}{CAPÍTULO \Roman{chapter}: \MakeUppercase{#1}}%
- \begin{center}\bfseries\normalsize \thechapter. CAPÍTULO \Roman{chapter}: \MakeUppercase{#1}\end{center}\vspace{8pt}%
+ \noindent\textbf{\thechapter. CAPÍTULO \Roman{chapter}: \MakeUppercase{#1}}\par\vspace{8pt}%
 }
-\newcommand{\preliminarTesis}[1]{\clearpage\thispagestyle{plain}\begin{center}\bfseries\MakeUppercase{#1}\end{center}\vspace{12pt}}
+\newcommand{\preliminarTesis}[1]{\clearpage\thispagestyle{plain}\noindent\textbf{\MakeUppercase{#1}}\par\vspace{8pt}}
 \newcommand{\preliminarIndice}[1]{\phantomsection\addcontentsline{toc}{chapter}{#1}}
