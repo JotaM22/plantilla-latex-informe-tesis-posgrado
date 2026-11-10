@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tablas}[2026/11/09 Soporte para tablas de informe]
+\ProvidesPackage{tablas}[2026/11/09 Tablas y figuras del informe]
 \RequirePackage{array}
 \RequirePackage{tabularx}
 \RequirePackage{booktabs}
@@ -7,8 +7,10 @@
 \RequirePackage{multirow}
 \RequirePackage{pdflscape}
 \RequirePackage{caption}
-\captionsetup[table]{position=top,justification=raggedright,singlelinecheck=false}
-\newcommand{\notaTabla}[1]{\par\vspace{9pt}\noindent{\small #1}\par}
-\newcommand{\fuenteTabla}[1]{\notaTabla{Fuente: #1}}
-% Todas las tablas deben respetar el ancho del bloque de texto o \linewidth.
-% Las tablas horizontales requieren comprobacion visual de orientacion y numero de pagina.
+\captionsetup[table]{position=top,labelfont=bf,textfont=it,labelsep=newline,justification=raggedright,singlelinecheck=false,skip=10pt,font=normalsize}
+\captionsetup[figure]{position=top,labelfont=bf,textfont=it,labelsep=newline,justification=raggedright,singlelinecheck=false,skip=10pt,font=normalsize}
+\newcommand{\notaTabla}[1]{\par\vspace{9pt}\noindent\begin{minipage}{\linewidth}\small\textit{Nota.} #1\end{minipage}\par}
+\newcommand{\fuenteTabla}[1]{\par\vspace{9pt}\noindent\begin{minipage}{\linewidth}\small Fuente: #1\end{minipage}\par}
+\newenvironment{paginaHorizontal}{\clearpage\begin{landscape}\thispagestyle{plain}}{\end{landscape}\clearpage}
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
