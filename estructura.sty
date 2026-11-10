@@ -1,18 +1,27 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{estructura}[2026/11/09 Comandos semanticos para informe]
+\ProvidesPackage{estructura}[2026/11/09 Estructura semantica de informe]
 \RequirePackage{titlesec}
 \RequirePackage{enumitem}
-\titleformat{\chapter}[hang]{\normalfont\bfseries\normalsize}{\thechapter.}{0.7em}{}
-\titlespacing*{\chapter}{0pt}{0pt}{10pt}
-\titleformat{\section}[hang]{\normalfont\bfseries\normalsize}{\thesection.}{0.7em}{}
-\titlespacing*{\section}{0pt}{8pt}{6pt}
-\titleformat{\subsection}[hang]{\normalfont\bfseries\normalsize}{\thesubsection.}{0.7em}{}
-\titlespacing*{\subsection}{0pt}{8pt}{6pt}
-\newcommand{\capituloInforme}[1]{\chapter{#1}}
-\newcommand{\seccionInforme}[1]{\section{#1}}
-\newcommand{\subseccionInforme}[1]{\subsection{#1}}
-\newlist{listaInforme}{itemize}{1}
-\setlist[listaInforme]{label=\raisebox{.25ex}{\rule{.8mm}{.8mm}},leftmargin=.75cm,labelsep=.3cm,itemsep=0pt,parsep=0pt,topsep=4pt}
+\titleformat{\section}[hang]{\normalfont\bfseries\normalsize}{\thesection.}{.7em}{}
+\titlespacing*{\section}{.25cm}{8pt}{6pt}
+\titleformat{\subsection}[hang]{\normalfont\bfseries\normalsize}{\thesubsection.}{.7em}{}
+\titlespacing*{\subsection}{.25cm}{8pt}{6pt}
+\titleformat{\subsubsection}[hang]{\normalfont\bfseries\normalsize}{\thesubsubsection.}{.7em}{}
+\titlespacing*{\subsubsection}{1.1cm}{8pt}{6pt}
+\newcommand{\seccionTesis}[1]{\section{#1}}
+\newcommand{\subseccionTesis}[1]{\subsection{#1}}
+\newcommand{\apartadoTesis}[1]{\subsubsection{#1}}
+\newcommand{\subtituloSinNumero}[1]{\par\addvspace{8pt}\noindent\textbf{#1}\par\nobreak\vspace{4pt}}
 \newlist{listaTrasTitulo}{itemize}{1}
-\setlist[listaTrasTitulo]{label=\raisebox{.25ex}{\rule{.8mm}{.8mm}},leftmargin=.75cm,labelsep=.3cm,itemsep=0pt,parsep=0pt,topsep=10pt}
-% Las palabras de los titulos son contenido editable, nunca numeracion manual.
+\setlist[listaTrasTitulo]{label=\raisebox{.25ex}{\rule{.8mm}{.8mm}},leftmargin=.75cm,labelsep=.3cm,itemsep=3pt,parsep=0pt,topsep=9pt}
+\newlist{listaTesis}{itemize}{1}
+\setlist[listaTesis]{label=\raisebox{.25ex}{\rule{.8mm}{.8mm}},leftmargin=.75cm,labelsep=.3cm,itemsep=3pt,parsep=0pt,topsep=3pt}
+\newcommand{\capituloTesis}[1]{%
+ \clearpage\refstepcounter{chapter}%
+ \thispagestyle{empty}%
+ \null\vfill\begin{center}{\bfseries\large CAPÍTULO \Roman{chapter}\par}\vspace{16pt}{\bfseries\large\MakeUppercase{#1}\par}\end{center}\vfill\null\clearpage%
+ \phantomsection\addcontentsline{toc}{chapter}{CAPÍTULO \Roman{chapter}: \MakeUppercase{#1}}%
+ \begin{center}\bfseries\normalsize \thechapter. CAPÍTULO \Roman{chapter}: \MakeUppercase{#1}\end{center}\vspace{8pt}%
+}
+\newcommand{\preliminarTesis}[1]{\clearpage\thispagestyle{plain}\begin{center}\bfseries\MakeUppercase{#1}\end{center}\vspace{12pt}}
+\newcommand{\preliminarIndice}[1]{\phantomsection\addcontentsline{toc}{chapter}{#1}}
