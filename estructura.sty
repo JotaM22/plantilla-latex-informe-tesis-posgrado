@@ -1,0 +1,18 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{estructura}[2026/11/09 Comandos semanticos para informe]
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\titleformat{\chapter}[hang]{\normalfont\bfseries\normalsize}{\thechapter.}{0.7em}{}
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
+\titleformat{\section}[hang]{\normalfont\bfseries\normalsize}{\thesection.}{0.7em}{}
+\titlespacing*{\section}{0pt}{8pt}{6pt}
+\titleformat{\subsection}[hang]{\normalfont\bfseries\normalsize}{\thesubsection.}{0.7em}{}
+\titlespacing*{\subsection}{0pt}{8pt}{6pt}
+\newcommand{\capituloInforme}[1]{\chapter{#1}}
+\newcommand{\seccionInforme}[1]{\section{#1}}
+\newcommand{\subseccionInforme}[1]{\subsection{#1}}
+\newlist{listaInforme}{itemize}{1}
+\setlist[listaInforme]{label=\raisebox{.25ex}{\rule{.8mm}{.8mm}},leftmargin=.75cm,labelsep=.3cm,itemsep=0pt,parsep=0pt,topsep=4pt}
+\newlist{listaTrasTitulo}{itemize}{1}
+\setlist[listaTrasTitulo]{label=\raisebox{.25ex}{\rule{.8mm}{.8mm}},leftmargin=.75cm,labelsep=.3cm,itemsep=0pt,parsep=0pt,topsep=10pt}
+% Las palabras de los titulos son contenido editable, nunca numeracion manual.
