@@ -1,0 +1,23 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{estilos}[2026/11/09 Base tipografica provisional para informe de tesis]
+\RequirePackage[spanish,es-tabla]{babel}
+\RequirePackage{fontspec}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Tinos}\PackageWarningNoLine{estilos}{Times New Roman no disponible: fuente sustituta Tinos}}
+\RequirePackage[a4paper,margin=2.5cm]{geometry}
+\RequirePackage{setspace}
+\RequirePackage{graphicx}
+\RequirePackage{ragged2e}
+\RequirePackage{fancyhdr}
+\RequirePackage{xurl}
+\RequirePackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{8pt}
+\AtBeginDocument{\setstretch{1.5}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+% Estos valores son PROVISIONALES hasta comparar un informe de tesis aprobado.
