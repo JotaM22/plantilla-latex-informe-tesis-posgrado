@@ -3,12 +3,13 @@
 \usepackage{estructura}
 \usepackage{tablas}
 \begin{document}
+\hypersetup{pageanchor=false} % Evita destino PDF duplicado de la portada
 % PORTADA: componente de informe; campos entre corchetes son contenido variable.
 \begin{titlepage}
 \thispagestyle{empty}
 \setstretch{1.0}\setlength{\parskip}{0pt}
 \begin{center}
-{\bfseries\fontsize{17}{22}\selectfont UNIVERSIDAD PRIVADA ANTENOR ORREGO\par}
+{\bfseries\fontsize{16}{21}\selectfont UNIVERSIDAD PRIVADA ANTENOR ORREGO\par}
 \vspace{.65cm}
 {\bfseries\fontsize{14}{20}\selectfont ESCUELA DE POSGRADO\par}
 \vspace{.5cm}
@@ -36,6 +37,7 @@
 \noindent R.D. [POR COMPLETAR]
 \end{titlepage}
 \pagenumbering{roman}
+\hypersetup{pageanchor=true} % Activa destinos PDF con numeracion romana en preliminares
 \preliminarTesis{Declaración de originalidad}
 [POR COMPLETAR: declaración institucional, fecha y firmas.]
 \preliminarTesis{Acreditación}
