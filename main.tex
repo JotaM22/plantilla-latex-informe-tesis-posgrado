@@ -3,6 +3,7 @@
 \usepackage{estructura}
 \usepackage{tablas}
 \begin{document}
+\hypersetup{pageanchor=false}
 \hypersetup{pageanchor=false} % Evita destino PDF duplicado de la portada
 % PORTADA: componente de informe; campos entre corchetes son contenido variable.
 \begin{titlepage}
@@ -13,7 +14,7 @@
 \vspace{.65cm}
 {\bfseries\fontsize{14}{20}\selectfont ESCUELA DE POSGRADO\par}
 \vspace{.5cm}
-\IfFileExists{figuras/escudo_upao.jpg}{\includegraphics[height=3.5cm,keepaspectratio]{figuras/escudo_upao.jpg}}{\fbox{\parbox[c][3.5cm][c]{3cm}{\centering ESCUDO\\INSTITUCIONAL}}}\par
+\IfFileExists{figuras/escudo_upao.jpg}{\includegraphics[height=5.5cm,keepaspectratio]{figuras/escudo_upao.jpg}}{\fbox{\parbox[c][3.5cm][c]{3cm}{\centering ESCUDO\\INSTITUCIONAL}}}\par
 \vspace{.5cm}
 {\bfseries\setstretch{1.35} TESIS PARA OPTAR EL GRADO DE MAESTRO EN [DENOMINACIÓN DEL PROGRAMA]\par}
 \vspace{.35cm}
@@ -22,21 +23,34 @@
 \vspace{.25cm}\rule{\linewidth}{.8pt}\par
 \vspace{.3cm}
 \end{center}
-\noindent Línea de investigación: [POR COMPLETAR]\par
-\noindent Sublínea de investigación: [POR COMPLETAR]\par
-\vspace{.15cm}
-\noindent\textbf{Autor:} [NOMBRE]\par
+\begin{tabularx}{\linewidth}{@{}p{5.0cm}X@{}}
+Línea de investigación: & [POR COMPLETAR]\\[3pt]
+Sublínea de investigación: & [POR COMPLETAR]
+\end{tabularx}\par
+\vspace{.45cm}
+\noindent\textbf{Autor:}\par
+\vspace{.18cm}
+\begin{center}[NOMBRE COMPLETO DEL AUTOR]\end{center}
+\vspace{.06cm}
 \noindent\textbf{Jurado Evaluador:}\par
+\vspace{.10cm}
 \noindent Presidente: [NOMBRE]\par
+\vspace{.10cm}
 \noindent Secretario: [NOMBRE]\par
+\vspace{.10cm}
 \noindent Vocal: [NOMBRE]\par
-\noindent\textbf{Asesor:} [NOMBRE]\par
-\noindent Código ORCID: [POR COMPLETAR]\par
+\vspace{.12cm}
+\noindent\textbf{Asesor:}\par
+\vspace{.10cm}
+\begin{center}[NOMBRE COMPLETO DEL ASESOR]\\[3pt]
+Código ORCID: [POR COMPLETAR]\end{center}
 \vfill
 \begin{center}\textbf{Trujillo, [AÑO]}\end{center}
+\vspace{.10cm}
 \noindent R.D. [POR COMPLETAR]
 \end{titlepage}
 \pagenumbering{roman}
+\hypersetup{pageanchor=true}
 \hypersetup{pageanchor=true} % Activa destinos PDF con numeracion romana en preliminares
 \preliminarTesis{Declaración de originalidad}
 [POR COMPLETAR: declaración institucional, fecha y firmas.]
