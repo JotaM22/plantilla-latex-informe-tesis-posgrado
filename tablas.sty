@@ -14,3 +14,49 @@
 \newenvironment{paginaHorizontal}{\clearpage\begin{landscape}\thispagestyle{plain}}{\end{landscape}\clearpage}
 \counterwithout{table}{chapter}
 \counterwithout{figure}{chapter}
+
+
+% --------------------------------------------------------------
+% MATRIZ DE OPERACIONALIZACION (criterios de plantilla de proyecto)
+% --------------------------------------------------------------
+% El contenido de la matriz es opcional y se invoca desde el documento.
+% Mantiene A4 horizontal, bordes completos, dimensiones agrupadas,
+% indicadores independientes y pagina centrada al pie.
+%
+% Compatibilidad con comandos de la plantilla de proyecto:
+\newcommand{\iniciotablaHorizontal}{\par\noindent\ignorespaces}
+\newcommand{\celdaIndicadores}[1]{%
+  \begin{minipage}[t]{\linewidth}%
+  \vspace{0pt}%
+  \begin{itemize}[leftmargin=1.25em,label=\textbullet,
+                  topsep=0pt,itemsep=2pt,parsep=0pt,partopsep=0pt]%
+  #1%
+  \end{itemize}%
+  \end{minipage}%
+}
+\newcommand{\paginaHorizontalCentro}{\thispagestyle{plain}}
+
+% Entorno para una matriz que cabe en UNA pagina horizontal.
+% Para matrices de varias paginas: dividir por bloques con el mismo
+% encabezado y usar un entorno por pagina. No dividir multirow.
+\newenvironment{matrizOperacionalizacion}{%
+  \clearpage
+  \begin{landscape}%
+  \thispagestyle{plain}%
+  \begingroup
+  \setstretch{1.0}%
+  \setlength{\parskip}{0pt}%
+  \setlength{\parindent}{0pt}%
+  \footnotesize
+  \renewcommand{\arraystretch}{1.32}%
+}{%
+  \par
+  \endgroup
+  \end{landscape}%
+  \clearpage
+}
+% Titulo de la tabla con numeracion automatica y registro en indice.
+\newcommand{\tituloMatrizOperacionalizacion}[2][]{%
+  \captionof{table}{#2}%
+  \if\relax\detokenize{#1}\relax\else\label{#1}\fi
+}
