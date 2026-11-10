@@ -1,22 +1,26 @@
-# Plantilla LaTeX para informe de tesis de posgrado
+# Plantilla LaTeX — Informe final de tesis de posgrado
 
-Repositorio **independiente** de la plantilla para proyecto o plan de tesis.
+**Versión inicial de formato v1.0, derivada de una auditoría visual de un informe Word suministrado por el usuario.** Es un punto de partida técnico, no una certificación de normativa institucional.
 
-## Estado
-**Estructura inicial (v0.1)**. No se declara todavía equivalencia con un formato institucional de informe de tesis: la portada, el orden de los preliminares, las normas de capítulos y las tablas deberán contrastarse con un informe Word/PDF aprobado.
+## Compilar en Overleaf / VS Code
+- Archivo principal: `main.tex`.
+- Motor: **XeLaTeX** (obligatorio por `fontspec`).
+- En VS Code, usar `latexmk -xelatex`, no `latexmk -pdf`.
+- Subir `figuras/escudo_upao.jpg` si se desea ver el escudo institucional real; en GitHub, mientras falte esa imagen, el modelo emplea un marcador visual. El ZIP de prueba contiene el escudo extraído del Word que facilitó el usuario.
 
 ## Organización
-- \`main.tex\`: documento principal de ejemplo, sin resultados inventados.
-- \`estilos.sty\`: presentación tipográfica y márgenes.
-- \`estructura.sty\`: comandos semánticos para capítulos y secciones.
-- \`tablas.sty\`: tablas, notas y soporte para orientación horizontal.
-- \`AGENTS.md\`: instrucciones para agentes de IA.
-- \`NORMAS_FORMATO.md\`: decisiones validadas y pendientes.
+- `main.tex`: ejemplo **sin contenido académico real**.
+- `estilos.sty`: márgenes, fuente, interlineado y número de página.
+- `estructura.sty`: capítulos, divisorias, títulos y listas semánticas.
+- `tablas.sty`: leyendas, notas, fuentes, tablas horizontales y figuras.
+- `AGENTS.md`: instrucciones para otras instancias de ChatGPT/Codex.
+- `NORMAS_FORMATO.md`: reglas implementadas y pendientes.
+- `AUDITORIA_FORMATO_REFERENCIA.md`: análisis del informe Word.
 
-## Compilación
-Usar **XeLaTeX** en Overleaf, con \`main.tex\` como archivo principal. Se intenta usar Times New Roman; si no está instalada, se usa Tinos como sustituta de previsualización.
+## Modelo de informe
+Portada, Declaración, Acreditación, Presentación, Dedicatoria, Agradecimiento, Resumen, Abstract, Índice, Índice de tablas, Índice de figuras; capítulos I Introducción, II Marco teórico, III Metodología, IV Resultados, V Discusión, VI Conclusiones y recomendaciones; Referencias y anexos.
 
-## Alcance
-Es una base de trabajo para **informes finales**: incluye resumen, abstract, introducción, metodología, resultados, discusión, conclusiones, recomendaciones, referencias y anexos. No reutilizar directamente la estructura de Generalidades y cronograma académico del proyecto de tesis.
+La numeración de tablas y figuras es consecutiva y los títulos de capítulo y subtítulos son editables sin perder su jerarquía.
 
-El contenido de ejemplo contiene marcadores \`[POR COMPLETAR]\` y no representa una tesis terminada.
+## Estado de QA
+La versión local con el escudo incluido compiló dos veces con XeLaTeX y produjo un PDF de **27 páginas** de ejemplo (muchas páginas son preliminares y divisorias obligatorias). La tipografía local de comprobación es Tinos, no Times New Roman auténtica. La equivalencia exacta con Word requiere comparar en Overleaf/Word.
