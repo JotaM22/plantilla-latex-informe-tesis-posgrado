@@ -7,6 +7,9 @@
 \RequirePackage{multirow}
 \RequirePackage{pdflscape}
 \RequirePackage{caption}
+\RequirePackage{enumitem}
+\RequirePackage{eso-pic}
+\RequirePackage{tikz}
 \captionsetup[table]{position=top,labelfont=bf,textfont=it,labelsep=newline,justification=raggedright,singlelinecheck=false,skip=10pt,font=normalsize}
 \captionsetup[figure]{position=top,labelfont=bf,textfont=it,labelsep=newline,justification=raggedright,singlelinecheck=false,skip=10pt,font=normalsize}
 \newcommand{\notaTabla}[1]{\par\vspace{9pt}\noindent\begin{minipage}{\linewidth}\small\textit{Nota.} #1\end{minipage}\par}
@@ -34,7 +37,14 @@
   \end{itemize}%
   \end{minipage}%
 }
-\newcommand{\paginaHorizontalCentro}{\thispagestyle{plain}}
+\newcommand{\paginaHorizontalCentro}{%
+  \thispagestyle{empty}%
+  \AddToShipoutPictureFG*{%
+    \begin{tikzpicture}[remember picture,overlay]%
+      \node[rotate=90] at ([xshift=-1cm]current page.east) {\thepage};%
+    \end{tikzpicture}%
+  }%
+}
 
 % Entorno para una matriz que cabe en UNA pagina horizontal.
 % Para matrices de varias paginas: dividir por bloques con el mismo
@@ -42,7 +52,7 @@
 \newenvironment{matrizOperacionalizacion}{%
   \clearpage
   \begin{landscape}%
-  \thispagestyle{plain}%
+  \paginaHorizontalCentro
   \begingroup
   \setstretch{1.0}%
   \setlength{\parskip}{0pt}%
